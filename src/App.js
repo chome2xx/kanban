@@ -1,17 +1,19 @@
-import './App.scss';
+// Import React components.
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
+import Nodata from './components/Nodata';
+// Import css files.
+import './App.scss';
 import './components/Header.scss';
 import './components/Main.scss';
 import './components/Card.scss';
 import './components/Footer.scss';
 import './components/Common.scss';
 import './components/Nodata.scss';
-import Nodata from './components/Nodata';
 
 function App() {
-  const noData = false;
+  const noData = true;
   return (
     <>
       <div className="wrapper">
