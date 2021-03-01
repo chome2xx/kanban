@@ -13,7 +13,7 @@ import './components/Common.scss';
 import './components/Nodata.scss';
 
 function App() {
-  const noData = true;
+  const noData = false;
   return (
     <>
       <div className="wrapper">

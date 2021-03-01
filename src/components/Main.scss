@@ -1,6 +1,7 @@
 .main {
     float: left;
     width: 100%;
+    min-width: 1400px;
     min-height: calc(100vh - 100px);
 }
 
@@ -15,10 +16,14 @@
     font-size: 12px;
     text-align: center;
     width: 40px;
+    &:hover{
+        cursor:pointer;
+    }
 }
 
 .container {
-    display: inline-block;
+    float: left;
+    display: block;
     width: 25%;
     margin: 0 auto;
 }

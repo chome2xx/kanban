@@ -6,3 +6,82 @@
     margin: 10px auto;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
 }
+
+.card {
+    width: 90%;
+    min-width: 320px;
+    height: 100%;
+    border: solid 1px #DDDDDD;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
+}
+
+.green {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: rgb(44, 231, 44);
+    position: relative;
+    top: 10px;
+    left: 10px;
+    margin: 0px;
+}
+
+.orange {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color:orange;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    margin: 0px;
+}
+
+.red {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color:red;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    margin: 0px;
+}
+
+.title {
+    font-size: 20px;
+    margin: 20px 0px 0px 10px;
+}
+
+.description {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #6d6d6d;
+}
+
+.edit {
+    color: black;
+    text-align: center;
+    margin: 10px auto;
+    display: block;
+    width: 60px;
+    height: 20px;
+    border-radius: 30px;
+    padding: 8px 0px 3px 0px;
+    text-decoration:none;
+    border: solid 1px #B3B3B3;
+    font-size: 12px;
+}
+
+.clear {
+    clear: left;
+    margin-top: 70px;
+}
+
+.fields li{
+    float: left;
+    width: 50% ;
+    font-size: 9pt;    
+}
