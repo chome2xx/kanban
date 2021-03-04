@@ -1,6 +1,17 @@
+@mixin status {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    margin: 0px;
+}
+
 .card {
     width: 90%;
     height: 150px;
+    background-color: #ffffff;
     border: solid 1px #DDDDDD;
     border-radius: 10px;
     margin: 10px auto;
@@ -18,36 +29,18 @@
 }
 
 .green {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
+    @include status;
     background-color: rgb(44, 231, 44);
-    position: relative;
-    top: 10px;
-    left: 10px;
-    margin: 0px;
 }
 
 .orange {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
+    @include status;    
     background-color:orange;
-    position: relative;
-    top: 10px;
-    left: 10px;
-    margin: 0px;
 }
 
 .red {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
+    @include status;
     background-color:red;
-    position: relative;
-    top: 10px;
-    left: 10px;
-    margin: 0px;
 }
 
 .title {

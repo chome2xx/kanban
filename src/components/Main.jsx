@@ -1,62 +1,60 @@
-import React,{ useState } from 'react'
-import Card from './Card'
+import React,{ useReducer ,useState } from 'react'
+import Card from './Card';
+import AppContext from '../contexts/AppContext';
+import Modal from '../components/Modal';
+import rootReducer from '../reducers/index';
 
-const testData = {
-    title : 'Thumbnail label',
-    description : 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.',
-    dueDate :'2021/3/1',
-    priority : 'High',
-    estimation: '1.0',
-    actualTime: '1.0',
-    phase : 'backlog',
-    status: ''
+const initState = { 
+    reducerCard :[],
+    reducerModal : {show:false},
+}
+
+// Display card components
+const dispCards = (cards,phase) =>{
+
+    // Filter data by phase
+    const filteredCards = cards.filter((value)=> {return value.phase===phase})
+
+    // Generate card componets
+    return (
+        filteredCards.map(value =>
+            <Card key={value.id} dueDate={value.dueDate} priority={value.priority}
+                estimation={value.estimation} actualTime={value.actualTime}
+                title={value.title} description={value.description}
+                status={value.status}
+            />
+        )
+    )
 }
 
 const Main = () => {
 
+    const [state, dispacth] = useReducer(rootReducer,initState)
     const [object, setObject] = useState([]);
 
-    const createData = () =>{
-        setObject([...object,testData]);
-    }
-
-    const dispCards = (phase) =>{
-
-        // Filter data by phase
-        const cards = object.filter((value)=> {return value.phase===phase})
-
-        // Generate card componets
-        return (
-            cards.map(value =>
-                <Card dueDate={value.dueDate} priority={value.priority}
-                    estimation={value.estimation} actualTime={value.actualTime}
-                    title={value.title} description={value.description}
-                    status={value.status}
-                />
-            )
-        )
-    }
-
     return (
-        <div class='main'>
-            <p onClick={createData} className='create'>Create</p>
-            <div className='container backlog'>
-                <p className='progress'>Backlog</p>
-                {dispCards('backlog')}
-           </div>
-            <div className='container scheduled'>
-                <p className='progress'>Scheduled</p>
-                {dispCards('scheduled')}
+        <AppContext.Provider value={{stateProvided:state,dispatchProvided:dispacth}}>            
+            <div className='main'>
+                <p  onClick={() => dispacth({type:'show'})} className='create'>Create</p>
+                <Modal object={object} setObject={setObject}/>
+                <div className='container backlog'>
+                    <p className='progress'>Backlog</p>
+                    {dispCards(state.reducerCard,'backlog')}
             </div>
-            <div className='container inProgress'>
-                <p className='progress'>In Progress</p>
-                {dispCards('inProgress')}
+                <div className='container scheduled'>
+                    <p className='progress'>Scheduled</p>
+                    {dispCards(state.reducerCard,'scheduled')}
+                </div>
+                <div className='container inProgress'>
+                    <p className='progress'>In Progress</p>
+                    {dispCards(state.reducerCard,'inProgress')}
+                </div>
+                <div className='container done'>
+                    <p className='progress'>Done</p>
+                    {dispCards(state.reducerCard,'done')}
+                </div>
             </div>
-            <div className='container done'>
-                <p className='progress'>Done</p>
-                {dispCards('done')}
-            </div>
-        </div>
+        </AppContext.Provider>
     )
 }
 

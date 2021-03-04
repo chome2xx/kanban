@@ -15,7 +15,7 @@ const Card = (props) => {
                 </ul>
             </div>
             <div className='clear'>
-                <a href='#' class='edit'>Edit</a>
+                <p href='#' class='edit'>Edit</p>
             </div>
 
         </div>

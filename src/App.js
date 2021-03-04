@@ -14,18 +14,19 @@ import './components/Nodata.scss';
 
 function App() {
   const noData = false;
+
   return (
-    <>
-      <div className="wrapper">
-        <Header />
-        {noData
-          ? <Nodata />
-          : <Main />
-        }
-        <Footer />
-      </div>
-    </>
-  );
+      <>
+        <div className="wrapper">
+          <Header />
+          {noData
+            ? <Nodata />
+            : <Main />
+          }
+          <Footer />
+        </div>
+      </>
+    );
 }
 
 export default App;
