@@ -1,6 +1,15 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import AppContext from '../contexts/AppContext';
 
 const Card = (props) => {
+
+    const {stateProvided} = useContext(AppContext);
+    const {dispatchProvided} = useContext(AppContext);
+
+    const getId = (e) => {
+        console.log(e.target.id);
+    }
+
     return (
         <div className='card'>
             <div className={props.status}></div>
@@ -15,7 +24,7 @@ const Card = (props) => {
                 </ul>
             </div>
             <div className='clear'>
-                <p href='#' class='edit'>Edit</p>
+                <p id = {props.id} onClick={() => [dispatchProvided({type:'show'})]} href='#' className='edit'>Edit</p>
             </div>
 
         </div>

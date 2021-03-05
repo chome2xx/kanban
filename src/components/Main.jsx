@@ -1,4 +1,4 @@
-import React,{ useReducer ,useState } from 'react'
+import React,{ useReducer } from 'react'
 import Card from './Card';
 import AppContext from '../contexts/AppContext';
 import Modal from '../components/Modal';
@@ -18,7 +18,7 @@ const dispCards = (cards,phase) =>{
     // Generate card componets
     return (
         filteredCards.map(value =>
-            <Card key={value.id} dueDate={value.dueDate} priority={value.priority}
+            <Card key={value.id} id={value.id} dueDate={value.dueDate} priority={value.priority}
                 estimation={value.estimation} actualTime={value.actualTime}
                 title={value.title} description={value.description}
                 status={value.status}
@@ -30,17 +30,21 @@ const dispCards = (cards,phase) =>{
 const Main = () => {
 
     const [state, dispacth] = useReducer(rootReducer,initState)
-    const [object, setObject] = useState([]);
 
     return (
         <AppContext.Provider value={{stateProvided:state,dispatchProvided:dispacth}}>            
             <div className='main'>
                 <p  onClick={() => dispacth({type:'show'})} className='create'>Create</p>
-                <Modal object={object} setObject={setObject}/>
+
+                {/* Open modal window */}
+                {state.reducerModal.show &&
+                    <Modal />
+                }
+
                 <div className='container backlog'>
                     <p className='progress'>Backlog</p>
                     {dispCards(state.reducerCard,'backlog')}
-            </div>
+                </div>
                 <div className='container scheduled'>
                     <p className='progress'>Scheduled</p>
                     {dispCards(state.reducerCard,'scheduled')}

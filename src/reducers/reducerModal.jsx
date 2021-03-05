@@ -2,7 +2,7 @@ const reducerModal = (state=[],action) => {
     switch (action.type) {
         case 'show':
             return {...state,show:true}
-        case 'close':
+        case 'hide':
             return {...state,show:false}
         default: return state        
     }

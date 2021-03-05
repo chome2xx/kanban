@@ -22,26 +22,6 @@
     }
 }
 
-.buttons {
-    text-align: center;
-    p {
-        color: #313131;
-        background-color: #ffffff;
-        padding: 8px;
-        display: inline-block;
-        border: #B3B3B3 solid 1px;
-        border-radius: 30px;
-        margin: 10px;
-        text-decoration:none;
-        font-size: 12px;
-        text-align: center;
-        width: 40px;
-        &:hover{
-            cursor:pointer;
-        }
-    }
-}
-
 .container {
     float: left;
     display: block;
@@ -82,3 +62,28 @@
         background:#ffffff;
         border-radius: 10px;
       }
+
+.modal-container {
+    text-align: center;
+    .input {
+        display: block;
+        width: 360px;
+        height: 30px;
+        border:#B3B3B3 solid 1px;
+        border-radius: 10px;
+        margin-left: 20px;
+    }
+    
+    .textarea {
+        height: 50px;
+
+        resize: none;
+    }
+
+    .label {
+        color: #333333;
+        margin: 20px 0px 10px 20px;
+        text-align: left;
+    }
+}
+
