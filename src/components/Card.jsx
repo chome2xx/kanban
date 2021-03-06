@@ -3,12 +3,8 @@ import AppContext from '../contexts/AppContext';
 
 const Card = (props) => {
 
-    const {stateProvided} = useContext(AppContext);
+    // const {stateProvided} = useContext(AppContext);
     const {dispatchProvided} = useContext(AppContext);
-
-    const getId = (e) => {
-        console.log(e.target.id);
-    }
 
     return (
         <div className='card'>

@@ -2,36 +2,26 @@
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    position: relative;
-    top: 10px;
-    left: 10px;
-    margin: 0px;
+    // position: relative;
+    // top: 10px;
+    // left: 10px;
+    margin: 10px;
 }
 
 .card {
-    width: 90%;
-    height: 150px;
-    background-color: #ffffff;
-    border: solid 1px #DDDDDD;
-    border-radius: 10px;
-    margin: 10px auto;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
-}
-
-.card {
-    width: 90%;
-    min-width: 320px;
+    width: 95%;
+    // min-width: 320px;
     height: 100%;
     border: solid 1px #DDDDDD;
     border-radius: 10px;
     margin: 10px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
+    .green {
+        @include status;
+        background-color: rgb(44, 231, 44);
+    }
 }
 
-.green {
-    @include status;
-    background-color: rgb(44, 231, 44);
-}
 
 .orange {
     @include status;    
@@ -76,5 +66,5 @@
 .fields li{
     float: left;
     width: 50% ;
-    font-size: 9pt;    
+    font-size: 9pt;
 }

@@ -13,7 +13,7 @@ const initState = {
 const dispCards = (cards,phase) =>{
 
     // Filter data by phase
-    const filteredCards = cards.filter((value)=> {return value.phase===phase})
+    const filteredCards = cards.filter((value)=> {return value.phase === phase})
 
     // Generate card componets
     return (
