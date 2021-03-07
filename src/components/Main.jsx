@@ -6,7 +6,7 @@ import rootReducer from '../reducers/index';
 
 const initState = { 
     reducerCard :[],
-    reducerModal : {show:false},
+    reducerModal : {show:false,mode:'',id:''},
 }
 
 // Display card components
@@ -34,7 +34,7 @@ const Main = () => {
     return (
         <AppContext.Provider value={{stateProvided:state,dispatchProvided:dispacth}}>            
             <div className='main'>
-                <p  onClick={() => dispacth({type:'show'})} className='create'>Create</p>
+                <p  onClick={() => dispacth({type:'create'})} className='create'>Create</p>
 
                 {/* Open modal window */}
                 {state.reducerModal.show &&

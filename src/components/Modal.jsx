@@ -1,7 +1,7 @@
 import React,{useContext,useState,useEffect} from 'react';
 import AppContext from '../contexts/AppContext';
 
-const Modal = () => {
+const Modal = (props) => {
 
     // Initial data for adding new task
     const initData = {
@@ -16,14 +16,24 @@ const Modal = () => {
       status: 'green'
     }
 
-  const [data, setData] = useState(initData);
   const {stateProvided} = useContext(AppContext);
   const {dispatchProvided} = useContext(AppContext);
+  const [data, setData] = useState(initData);
+  const mode = stateProvided.reducerModal.mode;
 
+  // Set data
   useEffect(()=>{
-    const id = stateProvided.reducerCard.length;
-    setData({ ...data, id:id})
+    if(mode==='edit'){
+      const editData = stateProvided.reducerCard.filter((value)=> {
+        return value.id === stateProvided.reducerModal.id
+      })
+      setData(editData[0]);
+    } else {
+      const id = stateProvided.reducerCard.length;
+      setData({ ...data, id:id})  
+    }
   },[])
+
 
   // Set state when Title chenged
   const doChangeTitle = (e) => {
@@ -37,7 +47,11 @@ const Modal = () => {
 
   // Set state when Due Date chenged
   const doChangeDueDate = (e) => {
-    setData({ ...data, dueDate: e.target.value })
+    if(data.actualTime>0){
+      setData({ ...data, dueDate: e.target.value,phase:'inProgress' })
+    } else if(e.target.value !== ''){
+      setData({ ...data, dueDate: e.target.value,phase:'scheduled' })
+    }
   }
 
   // Set state when Due Date chenged
@@ -52,12 +66,27 @@ const Modal = () => {
   
   // Set state when Actual Tile chenged
   const doChangeActualTime = (e) => {
-    setData({ ...data, actualTime: e.target.value,phase:'inProgress' })
+    if(e.target.value>0){
+      setData({ ...data, actualTime: e.target.value,phase:'inProgress' })
+    } else if(data.dueDate !== ''){
+      setData({ ...data, actualTime: e.target.value,phase:'scheduled' })
+    }
   }
   
-  const AddNewTask = () =>{
-    console.log(data);
+  const addNewCard = () =>{
     dispatchProvided({ type: "add", data: data });
+    setData(initData)
+    dispatchProvided({ type: "hide"});
+  }
+
+  const updateCard = () =>{
+    dispatchProvided({ type: "update", data: data });
+    setData(initData)
+    dispatchProvided({ type: "hide"});
+  }
+
+  const deleteCard = () =>{
+    dispatchProvided({ type: "delete", data: data });
     setData(initData)
     dispatchProvided({ type: "hide"});
   }
@@ -68,22 +97,30 @@ const Modal = () => {
   }
 
   return (
+    // Render Modal window
     <div id="overlay">
       <div id="content">
         <div className='modal-container'>
-          <h2>New Task</h2>
+          {/* Mode */}
+          {(mode === 'create') ?
+            <h2>New Card</h2> : <h2>Edit Card</h2> 
+          }
+          {/* Title */}
           <p className='label' >Title:</p>
           <input className='input title' type="text" autoFocus={true}
             onChange={doChangeTitle}
             value={data.title}
           />
+          {/* Description */}
           <p className='label'>Description:</p>
           <textarea className='input textarea' cols="30" rows="10" value={data.description}
             onChange={doChangeDescription}>
           </textarea>
+          {/* Due Date */}
           <p className='label'>Due Date:</p>
           <input className='input date' type="date" name="" id="" value={data.dueDate}
             onChange={doChangeDueDate} />
+          {/* Prioritu */}
           <p className="label">Select priority level:</p>
           <select onChange={doChangePriority}
             className='input priority' value={data.priority}>
@@ -91,20 +128,28 @@ const Modal = () => {
             <option value="Middle">Middle</option>
             <option value="High">High</option>
           </select>
+          {/* Estimation */}
           <p className='label' >Estimation(Hours):</p>
           <input className='input time' type="number" value={data.estimation}
             onChange={doChangeEstimation}
           />
+          {/* Actual Time */}
           <p className='label'>Actual Time(Hours):</p>
           <input className='input time' type="number" value={data.actualTime}
             onChange={doChangeActualTime}
           />
         </div>
         <br />
+        {/* Buttons */}
         <div className='buttons'>
           <p onClick={hideModal}>Cancel</p>
-          <p onClick={AddNewTask}>Add</p>
+          {(mode === 'create') ?
+            <p onClick={addNewCard}>Add</p> : <p onClick={updateCard}>Update</p>
+          }
         </div>
+          {
+            (mode === 'edit') && <p onClick={deleteCard} className='delete'>Delete this card.</p> 
+          }
       </div>
     </div >
   )

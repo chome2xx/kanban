@@ -88,3 +88,14 @@
     }
 }
 
+.delete {
+    color:red;
+    text-decoration: underline;
+    text-align: center;
+    &:hover{
+        cursor:pointer;
+    }
+}
+
+
+

@@ -20,7 +20,7 @@ const Card = (props) => {
                 </ul>
             </div>
             <div className='clear'>
-                <p id = {props.id} onClick={() => [dispatchProvided({type:'show'})]} href='#' className='edit'>Edit</p>
+                <p id = {props.id} onClick={() => [dispatchProvided({type:'edit',id:props.id})]} href='#' className='edit'>Edit</p>
             </div>
 
         </div>

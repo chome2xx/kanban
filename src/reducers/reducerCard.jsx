@@ -5,8 +5,17 @@ const reducerCard = (state=[],action) => {
             data = state.slice();
             data.push(action.data);
             return data
-        case 'b':
-            return state
+        case 'update':
+            data = state.filter((value)=> {
+                return value.id !== action.data.id
+            })
+            data.push(action.data);
+            return data
+        case 'delete':
+            data = state.filter((value)=> {
+                return value.id !== action.data.id
+            })
+            return data
         default: return state        
     }
 }

@@ -1,9 +1,11 @@
 const reducerModal = (state=[],action) => {
     switch (action.type) {
-        case 'show':
-            return {...state,show:true}
+        case 'create':
+            return {...state,show:true,mode:'create'}
+        case 'edit':
+            return {...state,show:true,mode:'edit',id:action.id}
         case 'hide':
-            return {...state,show:false}
+            return {...state,show:false,mode:'',id:''}
         default: return state        
     }
 }
