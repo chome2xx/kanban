@@ -56,6 +56,9 @@
     text-decoration:none;
     border: solid 1px #B3B3B3;
     font-size: 12px;
+    &:hover{
+        cursor:pointer;
+    }
 }
 
 .clear {
