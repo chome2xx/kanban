@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Kanban App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React の勉強目的で作成中のプロジェクトです。カードを作成してタスクをカンバン形式に表示することができます。 \
+データベースは Firebase の Cloud Firestore を使用しています。 \
+随時アップデート中です。
 
 ## Available Scripts
 
