@@ -9,7 +9,7 @@ const Card = (props) => {
     <div className="card">
       <div className={props.status}></div>
       <p className="title">{props.title}</p>
-      <p className="description">{props.description}</p>
+      {/* <p className="description">{props.description}</p> */}
       <div>
         <ul className="fields">
           <li>Due Date: {props.dueDate}</li>

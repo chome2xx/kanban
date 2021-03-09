@@ -106,15 +106,6 @@ const Modal = (props) => {
             onChange={doChangeTitle}
             value={data.title}
           />
-          {/* Description */}
-          <p className="label">Description:</p>
-          <textarea
-            className="input textarea"
-            cols="30"
-            rows="10"
-            value={data.description}
-            onChange={doChangeDescription}
-          ></textarea>
           {/* Due Date */}
           <p className="label">Due Date:</p>
           <input
@@ -152,6 +143,15 @@ const Modal = (props) => {
             value={data.actualTime}
             onChange={doChangeActualTime}
           />
+          {/* Description */}
+          <p className="label">Memo:</p>
+          <textarea
+            className="input textarea"
+            cols="30"
+            rows="10"
+            value={data.description}
+            onChange={doChangeDescription}
+          ></textarea>
         </div>
         <br />
         {/* Buttons */}

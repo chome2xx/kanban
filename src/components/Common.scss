@@ -1,27 +1,28 @@
-body ,html{
-    font-family:Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    height: 96%;
-    width: 100%;
-    min-width: 1000px;
+body,
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  height: 96%;
+  width: 1340px;
+  margin: auto;
 }
 
 .buttons {
+  text-align: center;
+  p {
+    color: #313131;
+    background-color: #ffffff;
+    padding: 8px;
+    display: inline-block;
+    border: #b3b3b3 solid 1px;
+    border-radius: 30px;
+    margin: 0px 10px 20px 10px;
+    text-decoration: none;
+    font-size: 12px;
     text-align: center;
-    p {
-        color: #313131;
-        background-color: #ffffff;
-        padding: 8px;
-        display: inline-block;
-        border: #B3B3B3 solid 1px;
-        border-radius: 30px;
-        margin: 0px 10px 20px 10px;
-        text-decoration:none;
-        font-size: 12px;
-        text-align: center;
-        width: 40px;
-        &:hover{
-            cursor:pointer;
-        }
+    width: 40px;
+    &:hover {
+      cursor: pointer;
     }
+  }
 }

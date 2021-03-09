@@ -1,18 +1,15 @@
 .Header {
-    width: 100%;
-    min-width: 1360px;
-    height: 50px;
-    h1 {
-        color: #ff3c7d;
-        font-size: 20pt;
-        margin: 0;
-        padding: 10px 0px 5px 5px;
-    }
-    hr {
-        height: 12px;
-        border: 0;
-        box-shadow: inset 0 5px 12px -10px rgba(0,0,0,0.5);
-    }
+  width: 100%;
+  height: 50px;
+  h1 {
+    color: #ff3c46;
+    font-size: 20pt;
+    margin: 0;
+    padding: 10px 0px 5px 5px;
+  }
+  hr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 5px 12px -10px rgba(0, 0, 0, 0.5);
+  }
 }
-
-
