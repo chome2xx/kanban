@@ -26,7 +26,7 @@ const dispCards = (cards, phase) => {
       estimation={value.estimation}
       actualTime={value.actualTime}
       title={value.title}
-      description={value.description}
+      memo={value.memo}
       status={value.status}
       phase={value.phase}
     />
@@ -42,7 +42,7 @@ const Main = () => {
         snapshot.docs.map((doc) => ({
           id: doc.id,
           title: doc.data().title,
-          description: doc.data().description,
+          memo: doc.data().memo,
           dueDate: doc.data().dueDate,
           priority: doc.data().priority,
           estimation: doc.data().estimation,

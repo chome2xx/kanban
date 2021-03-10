@@ -1,24 +1,8 @@
+@import "Common.scss";
 .main {
   float: left;
   width: 100%;
   min-height: calc(100vh - 100px);
-}
-
-.create {
-  color: #313131;
-  background-color: #ffffff;
-  padding: 8px;
-  display: block;
-  border: #b3b3b3 solid 1px;
-  border-radius: 30px;
-  margin: 20px 0px 10px 10px;
-  text-decoration: none;
-  font-size: 12px;
-  text-align: center;
-  width: 40px;
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .container {
@@ -26,7 +10,19 @@
   display: block;
   width: 25%;
   margin: 0 auto;
-  //   min-width: 340px;
+}
+
+.create {
+  @include button;
+  margin: 20px 10px 20px 10px;
+}
+
+.cancel,
+.add,
+.update {
+  @include button;
+  display: inline-block;
+  margin: 0px 10px 20px 10px;
 }
 
 .progress {
@@ -57,13 +53,12 @@
 #content {
   z-index: 2;
   width: 400px;
-  // padding: 1em;
+  padding: 1em;
   background: #ffffff;
   border-radius: 10px;
 }
 
 .modal-container {
-  text-align: center;
   .input {
     display: block;
     width: 90%;
@@ -71,14 +66,13 @@
     border: #b3b3b3 solid 1px;
     border-radius: 10px;
     margin: 0 auto;
+    .title {
+      font-size: 12pt;
+    }
   }
-
-  .title {
+  .memo {
     font-size: 12pt;
-  }
-
-  .textarea {
-    height: 40px;
+    height: 100px;
     resize: none;
   }
 
@@ -87,6 +81,10 @@
     width: 90%;
     margin: 15px auto 5px auto;
     text-align: left;
+  }
+  .buttons {
+    margin: 0 auto;
+    text-align: center;
   }
 }
 

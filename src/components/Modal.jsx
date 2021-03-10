@@ -7,7 +7,7 @@ const Modal = (props) => {
   const initData = {
     id: "",
     title: "",
-    description: "",
+    memo: "",
     dueDate: "",
     priority: "Low",
     estimation: "",
@@ -35,8 +35,8 @@ const Modal = (props) => {
   };
 
   // Set state when Description chenged
-  const doChangeDescription = (e) => {
-    setData({ ...data, description: e.target.value });
+  const doChangeMemo = (e) => {
+    setData({ ...data, memo: e.target.value });
   };
 
   // Set state when Due Date chenged
@@ -111,8 +111,6 @@ const Modal = (props) => {
           <input
             className="input date"
             type="date"
-            name=""
-            id=""
             value={data.dueDate}
             onChange={doChangeDueDate}
           />
@@ -143,31 +141,37 @@ const Modal = (props) => {
             value={data.actualTime}
             onChange={doChangeActualTime}
           />
-          {/* Description */}
+          {/*  */}
           <p className="label">Memo:</p>
           <textarea
-            className="input textarea"
+            className="input memo"
             cols="30"
             rows="10"
-            value={data.description}
-            onChange={doChangeDescription}
+            value={data.memo}
+            onChange={doChangeMemo}
           ></textarea>
-        </div>
-        <br />
-        {/* Buttons */}
-        <div className="buttons">
-          <p onClick={hideModal}>Cancel</p>
-          {mode === "create" ? (
-            <p onClick={addNewCard}>Add</p>
-          ) : (
-            <p onClick={updateCard}>Update</p>
+          <br />
+          {/* Buttons */}
+          <div className="buttons">
+            <p className="cancel" onClick={hideModal}>
+              Cancel
+            </p>
+            {mode === "create" ? (
+              <p className="add" onClick={addNewCard}>
+                Add
+              </p>
+            ) : (
+              <p className="update" onClick={updateCard}>
+                Update
+              </p>
+            )}
+          </div>
+          {mode === "edit" && (
+            <p onClick={deleteCard} className="delete">
+              Delete this card.
+            </p>
           )}
         </div>
-        {mode === "edit" && (
-          <p onClick={deleteCard} className="delete">
-            Delete this card.
-          </p>
-        )}
       </div>
     </div>
   );
