@@ -13,7 +13,7 @@
   }
 
   width: 95%;
-  height: 150px;
+  height: 100px;
   border: solid 0.5px #b3b3b3;
   border-radius: 10px;
   margin: 10px;
@@ -21,7 +21,7 @@
   // box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5);
   .green {
     @include status;
-    background-color: rgb(44, 231, 44);
+    background-color: greenyellow;
   }
   .orange {
     @include status;
@@ -39,13 +39,13 @@
   }
   .gray {
     @include status;
-    background-color: gray;
+    background-color: lightgray;
   }
 }
 
 .title {
   font-size: 12pt;
-  margin: 10px 0px 10px 10px;
+  margin: 5px 0px 5px 20px;
 }
 
 .memo {

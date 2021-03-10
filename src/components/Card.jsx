@@ -10,7 +10,7 @@ const Card = (props) => {
     const today = formatDate(new Date());
     const dueDate = formatDate(new Date(props.dueDate));
     if (props.phase === "done") {
-      status = "gray";
+      status = "white";
     } else if (props.dueDate === "") {
       status = "white";
     } else if (dueDate > today) {
@@ -33,7 +33,11 @@ const Card = (props) => {
   };
 
   return (
-    <div className="card">
+    <div
+      className="card"
+      id={props.id}
+      onClick={() => [dispatchProvided({ type: "edit", data: props })]}
+    >
       <div className={setStatus()}></div>
       <p className="title">{props.title}</p>
       {/* <p className="description">{props.description}</p> */}
@@ -46,14 +50,14 @@ const Card = (props) => {
         </ul>
       </div>
       <div className="clear">
-        <p
-          id={props.id}
-          onClick={() => [dispatchProvided({ type: "edit", data: props })]}
+        {/* <p
+          // id={props.id}
+          // onClick={() => [dispatchProvided({ type: "edit", data: props })]}
           href="#"
           className="edit"
         >
           Edit
-        </p>
+        </p> */}
       </div>
     </div>
   );

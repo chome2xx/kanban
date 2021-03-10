@@ -14,6 +14,7 @@ const Modal = (props) => {
     actualTime: "",
     phase: "backlog",
     status: "green",
+    completed: false,
   };
 
   const { stateProvided } = useContext(AppContext);
@@ -41,10 +42,14 @@ const Modal = (props) => {
 
   // Set state when Due Date chenged
   const doChangeDueDate = (e) => {
-    if (data.actualTime > 0) {
+    if (data.completed) {
+      setData({ ...data, dueDate: e.target.value, phase: "done" });
+    } else if (data.actualTime > 0) {
       setData({ ...data, dueDate: e.target.value, phase: "inProgress" });
     } else if (e.target.value !== "") {
       setData({ ...data, dueDate: e.target.value, phase: "scheduled" });
+    } else {
+      setData({ ...data, dueDate: e.target.value, phase: "backlog" });
     }
   };
 
@@ -60,10 +65,27 @@ const Modal = (props) => {
 
   // Set state when Actual Tile chenged
   const doChangeActualTime = (e) => {
-    if (e.target.value > 0) {
+    if (data.completed) {
+      setData({ ...data, actualTime: e.target.value, phase: "done" });
+    } else if (e.target.value > 0) {
       setData({ ...data, actualTime: e.target.value, phase: "inProgress" });
     } else if (data.dueDate !== "") {
       setData({ ...data, actualTime: e.target.value, phase: "scheduled" });
+    } else {
+      setData({ ...data, actualTime: e.target.value, phase: "backlog" });
+    }
+  };
+
+  // Set state when Checkbox clicked
+  const doChangeCompleted = (e) => {
+    if (e.target.checked) {
+      setData({ ...data, completed: true, phase: "done" });
+    } else if (data.actualTime > 0) {
+      setData({ ...data, completed: false, phase: "inProgress" });
+    } else if (data.dueDate !== "") {
+      setData({ ...data, completed: false, phase: "scheduled" });
+    } else {
+      setData({ ...data, completed: false, phase: "backlog" });
     }
   };
 
@@ -145,11 +167,18 @@ const Modal = (props) => {
           <p className="label">Memo:</p>
           <textarea
             className="input memo"
-            cols="30"
-            rows="10"
             value={data.memo}
             onChange={doChangeMemo}
           ></textarea>
+          <div>
+            <input
+              className="checkbox"
+              type="checkbox"
+              onChange={doChangeCompleted}
+              checked={data.completed}
+            />{" "}
+            <span className="completed">Completed</span>
+          </div>
           <br />
           {/* Buttons */}
           <div className="buttons">

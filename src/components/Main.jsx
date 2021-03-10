@@ -29,6 +29,7 @@ const dispCards = (cards, phase) => {
       memo={value.memo}
       status={value.status}
       phase={value.phase}
+      completed={value.completed}
     />
   ));
 };
@@ -49,6 +50,7 @@ const Main = () => {
           actualTime: doc.data().actualTime,
           status: doc.data().status,
           phase: doc.data().phase,
+          completed: doc.data().completed,
         }))
       );
     });

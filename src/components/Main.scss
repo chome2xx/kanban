@@ -22,7 +22,7 @@
 .update {
   @include button;
   display: inline-block;
-  margin: 0px 10px 20px 10px;
+  margin: 0px 10px 0px 10px;
 }
 
 .progress {
@@ -59,6 +59,9 @@
 }
 
 .modal-container {
+  h2 {
+    text-align: center;
+  }
   .input {
     display: block;
     width: 90%;
@@ -72,7 +75,7 @@
   }
   .memo {
     font-size: 12pt;
-    height: 100px;
+    height: 60px;
     resize: none;
   }
 
@@ -85,6 +88,14 @@
   .buttons {
     margin: 0 auto;
     text-align: center;
+  }
+  .checkbox {
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .completed {
+    color: #333333;
+    font-size: 10pt;
   }
 }
 
