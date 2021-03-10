@@ -27,8 +27,7 @@ const Modal = (props) => {
       const editData = stateProvided.reducerModal.editData;
       setData(editData);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [mode, stateProvided.reducerModal.editData]);
 
   // Set state when Title chenged
   const doChangeTitle = (e) => {

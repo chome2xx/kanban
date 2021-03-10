@@ -14,7 +14,7 @@
 
   width: 95%;
   height: 150px;
-  border: solid 0.5px #dddddd;
+  border: solid 0.5px #b3b3b3;
   border-radius: 10px;
   margin: 10px;
   background-color: #ffffff;
@@ -31,6 +31,15 @@
   .red {
     @include status;
     background-color: red;
+  }
+
+  .white {
+    @include status;
+    background-color: white;
+  }
+  .gray {
+    @include status;
+    background-color: gray;
   }
 }
 
