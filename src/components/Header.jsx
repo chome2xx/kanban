@@ -8,11 +8,10 @@ const Header = () => {
       </div>
       <div className="filterArea">
         <span className="label">Filter: </span>
-        <input type="text" className="filter" />
+        <input type="text" placeholder="Enter title" className="filter" />
       </div>
       <div className="credential"></div>
       <div className="clear"></div>
-      <hr />
     </div>
   );
 };
