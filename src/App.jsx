@@ -10,14 +10,28 @@ import "./components/Card.scss";
 import "./components/Footer.scss";
 import "./components/Common.scss";
 import "./components/Nodata.scss";
+import rootReducer from "./reducers/index";
+import React, { useReducer } from "react";
+import AppContext from "./contexts/AppContext";
+
+const initState = {
+  reducerModal: { show: false, mode: "", id: "" },
+  reducerTasks: [],
+};
 
 const App = () => {
+  const [state, dispacth] = useReducer(rootReducer, initState);
+
   return (
-    <div className="wrapper">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <AppContext.Provider
+      value={{ stateProvided: state, dispatchProvided: dispacth }}
+    >
+      <div className="wrapper">
+        <Header />
+        <Main />
+        <Footer />
+      </div>
+    </AppContext.Provider>
   );
 };
 

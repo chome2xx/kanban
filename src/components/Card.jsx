@@ -49,16 +49,7 @@ const Card = (props) => {
           <li>Actual Time: {props.actualTime} h</li>
         </ul>
       </div>
-      <div className="clear">
-        {/* <p
-          // id={props.id}
-          // onClick={() => [dispatchProvided({ type: "edit", data: props })]}
-          href="#"
-          className="edit"
-        >
-          Edit
-        </p> */}
-      </div>
+      <div className="clear"></div>
     </div>
   );
 };

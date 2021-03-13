@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import reducerModal from './reducerModal';
-import reducerCard from './reducerCard';
+import reducerModal from "./reducerModal";
+import reducerTasks from "./reducerTasks";
 
 const rootReducer = combineReducers({
-    reducerModal,
-    reducerCard
-})
+  reducerModal,
+  reducerTasks,
+});
 
-export default rootReducer
+export default rootReducer;
