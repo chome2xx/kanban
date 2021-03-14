@@ -17,6 +17,7 @@ import AppContext from "./contexts/AppContext";
 const initState = {
   reducerModal: { show: false, mode: "", id: "" },
   reducerTasks: [],
+  reducerFilter: "",
 };
 
 const App = () => {

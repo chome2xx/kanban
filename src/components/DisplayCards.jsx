@@ -3,12 +3,14 @@ import AppContext from "../contexts/AppContext";
 import Card from "../components/Card";
 
 const DisplayCards = (props) => {
-  //   console.log("dispCards");
   const { stateProvided } = useContext(AppContext);
 
   // Filter data by phase
   const filteredCards = stateProvided.reducerTasks.filter((value) => {
-    return value.phase === props.phase;
+    return (
+      value.phase === props.phase &&
+      value.title.indexOf(stateProvided.reducerFilter) > -1
+    );
   });
 
   return filteredCards.map((value) => (

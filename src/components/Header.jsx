@@ -4,8 +4,7 @@ import AppContext from "../contexts/AppContext";
 const Header = () => {
   const { dispatchProvided } = useContext(AppContext);
   const doChangeFilter = (e) => {
-    console.log(e.target.value);
-    dispatchProvided({ type: "filter", title: e.target.value });
+    dispatchProvided({ type: "filter", value: e.target.value });
   };
 
   return (
