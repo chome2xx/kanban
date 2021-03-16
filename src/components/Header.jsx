@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div className="Header">
       <div className="logo">
-        <h1>Kanban</h1>
+        <h1>Kanban!</h1>
       </div>
       <div className="filterArea">
         <span className="label">Filter: </span>
